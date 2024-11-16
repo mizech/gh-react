@@ -1,18 +1,8 @@
-
-name: Using Actions
+name: x1
 on: [push, workflow_dispatch]
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@v4
-            - name: List directories
-              run: ls -la
-            - name: Setup Node
-              uses: actions/setup-node@v4
-            - name: Trigger install
-              run: npm ci
-            - name: Run tests
-              run: npm test
-
+  EventFilters:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print message
+        run: echo "Running whenever a PR is opened or synchronized AND base branch is main"

@@ -11,6 +11,7 @@ jobs:
           echo "Ref: ${{github.action_ref}}"
           echo "SHA: ${{github.workflow_sha}}"
           echo "Actor: ${{github.triggering_actor}}"
-          echo "Workflow: "
+          echo "Workflow: ${{github}}"
           echo "Run ID: ${{github.run_id}}"
           echo "Run number: ${{github.run_number}}"
+          echo "Variables: ${{vars.VAR01}}"

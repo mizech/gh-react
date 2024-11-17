@@ -1,8 +1,16 @@
-name: x1
+name: 06 - Contexts
 on: [push, workflow_dispatch]
+
 jobs:
-  EventFilters:
+  echo-data:
     runs-on: ubuntu-latest
     steps:
-      - name: Print message
-        run: echo "Running whenever a PR is opened or synchronized AND base branch is main"
+      - name: Display Information
+        run: |
+          echo "Event name: ${{github.event_name}}"
+          echo "Ref: ${{github.action_ref}}"
+          echo "SHA: ${{github.workflow_sha}}"
+          echo "Actor: ${{github.triggering_actor}}"
+          echo "Workflow: "
+          echo "Run ID: ${{github.run_id}}"
+          echo "Run number: ${{github.run_number}}"

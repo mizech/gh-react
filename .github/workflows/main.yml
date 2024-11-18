@@ -18,4 +18,9 @@ jobs:
           echo "Branch: ${{github.ref_name}}"
           echo "Commit SHA: ${{github.sha}}"
           echo "Runner OS"
+      - name: debug2
+        if: ${{inputs.debug == true && github.ref_name == 'main'}}
+        run: echo "I was triggered from main"
+      - name: greeting
+        run: echo "Hello, GH-Actions ..."
 

@@ -19,7 +19,7 @@ jobs:
           echo "Commit SHA: ${{github.sha}}"
           echo "Runner OS"
       - name: debug2
-        if: ${{inputs.debug == true && github.ref_name == 'main'}}
+        if: ${{inputs.debug == true && github.ref_name == 'master'}}
         run: echo "I was triggered from main"
       - name: greeting
         run: echo "Hello, GH-Actions ..."

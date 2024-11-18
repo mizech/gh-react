@@ -1,20 +1,21 @@
-name: 06 - Contexts
-on: [push, workflow_dispatch]
-
+name: "07 - Using Expressions"
+on:
+  push:
+  workflow_dispatch:
+      inputs:
+        debug:
+          description: "Event-Trigger"
+          type: boolean
+          default: false
 jobs:
-  echo-data:
+  echo1:
     runs-on: ubuntu-latest
-    env:
-      env01: "Env_Variable_01"
     steps:
-      - name: Display Information
+      - name: debug
+        if: ${{inputs.debug == true}}
         run: |
-          echo "Event name: ${{github.event_name}}"
-          echo "Ref: ${{github.action_ref}}"
-          echo "SHA: ${{github.workflow_sha}}"
-          echo "Actor: ${{github.triggering_actor}}"
-          echo "Workflow: ${{github}}"
-          echo "Run ID: ${{github.run_id}}"
-          echo "Run number: ${{github.run_number}}"
-          echo "Variables: ${{vars.VAR01}}"
-          echo "Variables: ${{env.env01}}"
+          echo "Triggered by: github.event_name"
+          echo "Branch"
+          echo "Commit SHA: "
+          echo "Runner OS"
+

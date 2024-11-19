@@ -1,4 +1,4 @@
-name:
+name: Working with Variables
 env:
   WORKFLOW_VAR: "I am a workflow env var"
   OVERWRITTEN: "I will be overwritten"

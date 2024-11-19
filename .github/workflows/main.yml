@@ -1,26 +1,18 @@
-name: "07 - Using Expressions"
+name:
+env:
+  WORKFLOW_VAR: "I am a workflow env var"
+  OVERWRITTEN: "I will be overwritten"
 on:
   push:
   workflow_dispatch:
-      inputs:
-        debug:
-          description: "Event-Trigger"
-          type: boolean
-          default: false
 jobs:
   echo1:
     runs-on: ubuntu-latest
+    env:
+      JOB_VAR: "I am a job env var"
+      OVERWRITTEN: "I have been overwritten at the job level"
     steps:
-      - name: debug
-        if: ${{inputs.debug == true}}
+      - name: "Print Variables"
         run: |
-          echo "Triggered by: ${{github.event_name}}"
-          echo "Branch: ${{github.ref_name}}"
-          echo "Commit SHA: ${{github.sha}}"
-          echo "Runner OS"
-      - name: debug2
-        if: ${{inputs.debug == true && github.ref_name == 'master'}}
-        run: echo "I was triggered from main"
-      - name: greeting
-        run: echo "Hello, GH-Actions ..."
-
+          echo "Job env var: $WORKFLOW_VAR"
+          echo "Workflow env var: $OVERWRITTEN"
